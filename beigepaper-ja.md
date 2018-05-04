@@ -1,8 +1,8 @@
-# Beigepaper: An Ethereum Technical Specification
+# ベージュペーパー: Ethereum の技術仕様
 
-## Abstract
+## 概要
 
-The Ethereum Protocol is a deterministic but practically unbounded state-machine with two basic functions; the first being a globally accessible singleton state, and the second being a virtual machine that applies changes to that state. This paper explains the individual parts that make up these two factors.
+Ethereum のプロトコルは決定論的であるが、ふたつの基本的な機能を持つ実用的に無制限なステートマシンでもある。ひとつには、どこからでもアクセスできるシングルトンステートであり、もうひとつには、そのステートに変更を適用できる仮想マシンである。
 
 ## 1. Imagining Bitcoin as a Computer
 
