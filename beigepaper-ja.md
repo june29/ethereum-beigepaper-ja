@@ -35,21 +35,21 @@ The following is a search tree beginning with hex- adecimal values a and 4:
 
 ### 2.2. Tree Terminology
 
-- `a)` Root Node – The top (first) node in a tree.
-- `b)` Child Node – A node directly connected to an- other node when moving away from the Root.
-- `c)` Parent Node – The converse notion of a child. d) Sibling Nodes – A group of nodes with the same parent.
-- `e)` Descendant Node – A node reachable by re- peated proceeding from parent to child.
-- `f)` Ancestor Node – A node reachable by repeated proceeding from child to parent.
-- `g)` Leaf Node – A node with no children.
-- `h)` Branch Node – A node with at least one child.
-- `i)` Degree – The number of subtrees of a node.
-- `j)` Edge – The connection between one node and another.
-- `k)` Path – A sequence of nodes and edges connecting a node with a descendant.
-- `l)` Level – The level of a node is defined by 1 + (the number of connections between the node and the root).
-- `m)` Node Height – The height of a node is the num- ber of edges on the longest path between that node and a leaf.
-- `n)` Tree Height – The height of a tree is the height of its root node.
-- `o)` Depth – The depth of a node is the number of edges from the tree's root node to the node.
-- `p)` Forest – A forest is a set of n ≥ 0 disjoint trees.
+- `a)` Root Node \UTF{2013} The top (first) node in a tree.
+- `b)` Child Node \UTF{2013} A node directly connected to an- other node when moving away from the Root.
+- `c)` Parent Node \UTF{2013} The converse notion of a child. d) Sibling Nodes \UTF{2013} A group of nodes with the same parent.
+- `e)` Descendant Node \UTF{2013} A node reachable by re- peated proceeding from parent to child.
+- `f)` Ancestor Node \UTF{2013} A node reachable by repeated proceeding from child to parent.
+- `g)` Leaf Node \UTF{2013} A node with no children.
+- `h)` Branch Node \UTF{2013} A node with at least one child.
+- `i)` Degree \UTF{2013} The number of subtrees of a node.
+- `j)` Edge \UTF{2013} The connection between one node and another.
+- `k)` Path \UTF{2013} A sequence of nodes and edges connecting a node with a descendant.
+- `l)` Level \UTF{2013} The level of a node is defined by 1 + (the number of connections between the node and the root).
+- `m)` Node Height \UTF{2013} The height of a node is the num- ber of edges on the longest path between that node and a leaf.
+- `n)` Tree Height \UTF{2013} The height of a tree is the height of its root node.
+- `o)` Depth \UTF{2013} The depth of a node is the number of edges from the tree's root node to the node.
+- `p)` Forest \UTF{2013} A forest is a set of n \UTF{2265} 0 disjoint trees.
 
 #### 2.2.1. Recursive Length Prefix Encoding
 
@@ -72,26 +72,26 @@ A block is made up of 17 different elements. The first 15 elements are part of w
 
 Description : The information contained in a block besides the transactions list. This consists of:
 
-1. Parent Hash – This is the Keccak-256 hash of the parent block's header.
-2. Ommers Hash – This is the Keccak-256 hash of the ommer's list portion of this block.
-3. Beneficiary – This is the 20-byte address to which all block rewards are transferred.
-4. State Root – This is the Keccak-256 hash of the root node of the state trie, after a block and its transactions are finalized.
-5. Transactions Root – This is the Keccak-256 hash of the root node of the trie structure popu- lated with each transaction from a Block's trans- action list.
-6. Receipts Root – This is the Keccak-256 hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the block.
-7. Logs Bloom – This is the bloom filter composed from indexable information (log address and log topic) contained in the receipt for each transaction in the transactions list portion of a block.
-8. Difficulty – This is the difficulty of this block – a quantity calculated from the previous block's difficulty and its timestamp.
-9. Number – This is a quantity equal to the number of ancestor blocks behind the current block.
-10. Gas Limit – This is a quantity equal to the cur- rent maximum gas expenditure per block.
-11. Gas Used – This is a quantity equal to the total gas used in transactions in this block.
-12. Timestamp – This is a record of Unix's time at this block's inception.
-13. Extra Data – This byte-array of size 32 bytes or less contains extra data relevant to this block.
-14. Mix Hash – This is a 32-byte hash that verifies a sufficient amount of computation has been done on this block.
-15. Nonce – This is an 8-byte hash that verifies a sufficient amount of computation has been done on this block.
-16. Ommer Block Headers – These are the same components listed above for any ommers.
+1. Parent Hash \UTF{2013} This is the Keccak-256 hash of the parent block's header.
+2. Ommers Hash \UTF{2013} This is the Keccak-256 hash of the ommer's list portion of this block.
+3. Beneficiary \UTF{2013} This is the 20-byte address to which all block rewards are transferred.
+4. State Root \UTF{2013} This is the Keccak-256 hash of the root node of the state trie, after a block and its transactions are finalized.
+5. Transactions Root \UTF{2013} This is the Keccak-256 hash of the root node of the trie structure popu- lated with each transaction from a Block's trans- action list.
+6. Receipts Root \UTF{2013} This is the Keccak-256 hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the block.
+7. Logs Bloom \UTF{2013} This is the bloom filter composed from indexable information (log address and log topic) contained in the receipt for each transaction in the transactions list portion of a block.
+8. Difficulty \UTF{2013} This is the difficulty of this block \UTF{2013} a quantity calculated from the previous block's difficulty and its timestamp.
+9. Number \UTF{2013} This is a quantity equal to the number of ancestor blocks behind the current block.
+10. Gas Limit \UTF{2013} This is a quantity equal to the cur- rent maximum gas expenditure per block.
+11. Gas Used \UTF{2013} This is a quantity equal to the total gas used in transactions in this block.
+12. Timestamp \UTF{2013} This is a record of Unix's time at this block's inception.
+13. Extra Data \UTF{2013} This byte-array of size 32 bytes or less contains extra data relevant to this block.
+14. Mix Hash \UTF{2013} This is a 32-byte hash that verifies a sufficient amount of computation has been done on this block.
+15. Nonce \UTF{2013} This is an 8-byte hash that verifies a sufficient amount of computation has been done on this block.
+16. Ommer Block Headers \UTF{2013} These are the same components listed above for any ommers.
 
 #### 2.3.2. Block Footer
 
-Transaction Series – This is the only non-header con- tent in the block.
+Transaction Series \UTF{2013} This is the only non-header con- tent in the block.
 
 #### 2.3.3. Block Number and Difficulty
 
@@ -130,10 +130,10 @@ Alternatively: Transactions Root
 
 Description : The Keccak-256 hash of the root node that precedes the transactions in the transactions_list section of a Block.
 
-1. Nonce – The number of transactions sent by the sender.
-2. Gas Price – The number of Wei to pay the net- work for unit of gas.
-3. Gas Limit – The maximum amount of gas to be used in while executing a transaction.
-4. To – The 20-character recipient of a message call.
+1. Nonce \UTF{2013} The number of transactions sent by the sender.
+2. Gas Price \UTF{2013} The number of Wei to pay the net- work for unit of gas.
+3. Gas Limit \UTF{2013} The maximum amount of gas to be used in while executing a transaction.
+4. To \UTF{2013} The 20-character recipient of a message call.
 5. Value The number of Wei to be transferred to the recipient of a message call.
 6. v,r,s
 
@@ -155,7 +155,7 @@ A description that maps transactions to their sender using ECDSA of the SECP-256
 
 ### 3.6. Serialization/Deserialization
 
-This function expands a positive-integer value to a big- endian byte-array of minimal length. When accompa- nied by a · operator, it signals sequence concatenation. The big_endian function accompanies RLP serializa- tion and deserialization.
+This function expands a positive-integer value to a big- endian byte-array of minimal length. When accompa- nied by a \UTF{00B7} operator, it signals sequence concatenation. The big_endian function accompanies RLP serializa- tion and deserialization.
 
 ### 3.7. Ethereum Virtual Machine
 
@@ -173,19 +173,23 @@ Over an account's execution, the total fee for memory- usage payable is proporti
 
 Implementations must be able to manage this even- tuality. Storage fees have a slightly nuanced behaviour to incentivize minimization of the use of storage (which corresponds directly to a larger state database on all nodes), the execution fee for an operation that clears an entry in the storage is not only waived, a qualified refund is given; in fact, this refund is effectively paid up-front since the initial usage of a storage location costs substantially more than normal usage.
 
-### 3.8. Execution
 
-The execution of a transaction defines the state tran- sition function: stf. However, before any transaction can be executed it needs to go through the initial tests of intrinsic validity.
+### 3.8. 実行
 
-#### 3.8.1. Intrinsic Validity
+トランザクションの実行は、状態遷移関数stfを定義する。しかし、実行されるどんなトランサクションも初めに特定の検証に合格する必要がある。
 
-The criteria for intrinsic validity are as follows:
 
-- The transaction follows the rules for well-formed RLP (recursive length prefix.)
-- The signature on the transaction is valid.
-- The nonce on the transaction is valid, i.e. it is equivalent to the sender account's current nonce.
+
+#### 3..8.1. 特定の検証
+
+検証の合格条件(トランザクションが満たすべき条件)
+
+- トランザクションは、RLPフォーマットに従っているか。(RLPはrecursive length prefixの略)
+- トランザクションの署名が有効である。
+- トランザクションのnonceが有効である。送信者の現在のnonceと等しいかどうか検証する。
 - The gas_limit is greater than or equal to the intrinsic_gas used by the transaction.
-- The sender's account balance contains the cost required in up-front payment.
+- トランザクションに事前に定められているGas量よりも、gas limitが大きく設定されている。
+- 送信者のアカウントの残高が、支払いの費用よりも上回っている。
 
 #### 3.8.2. Transaction Receipt
 
@@ -265,7 +269,7 @@ The Ethereum Runtime Environment is the environ- ment under which Autonomous Obj
 
 #### 3.8.10. Big Endian Function
 
-This function expands a positive-integer value to a big- endian byte array of minimal length. When accompa- nied by a · operator, it signals sequence concatenation. The big_endian function accompanies RLP serializa- tion and deserialization.
+This function expands a positive-integer value to a big- endian byte array of minimal length. When accompa- nied by a \UTF{00B7} operator, it signals sequence concatenation. The big_endian function accompanies RLP serializa- tion and deserialization.
 
 ### 3.9. Gas
 
@@ -345,7 +349,7 @@ The application of rewards to a block involves rais- ing the balance of the acco
 
 paragraphState & Nonce Validation The function that maps a block B to its initiation state, that is,the hash of the root node of a trie of state x. This value is stored in the state database trivial and efficient since the trie is by nature a resilient data structure. And finally define the block_transition_function, which maps an incomplete block to a complete block with a specified dataset. As specified at the beginning of the present work, the state_transition_function, which is de- fined in terms of, the block_finalisation_function and, the transaction_evaluation_function. As previously detailed, there is the nth corresponding status code, logs and cumulative gas used after each transac- tion, the fourth component in the tuple, has already been defined in terms of the logs).
 
-The nth state is given from applying the correspond- ing transaction to the state resulting from the previous transaction (or the block's initial state in the case of the first BYZANTIUM VERSION 3475aa8 – 2018-01-26 14 such transaction): otherwise in certain cases there is a similar approach defining each item as the gas used in evaluating the corresponding transaction summed with the previous item (or zero, if it is the first), giv- ing us a running total: the function is used that was defined in the transaction execution function. Finally new state exists in the context of the block reward function applied to the final transaction's resultant state, thus the complete block-transition mechanism, less PoW, the proof-of-work function is defined.
+The nth state is given from applying the correspond- ing transaction to the state resulting from the previous transaction (or the block's initial state in the case of the first BYZANTIUM VERSION 3475aa8 \UTF{2013} 2018-01-26 14 such transaction): otherwise in certain cases there is a similar approach defining each item as the gas used in evaluating the corresponding transaction summed with the previous item (or zero, if it is the first), giv- ing us a running total: the function is used that was defined in the transaction execution function. Finally new state exists in the context of the block reward function applied to the final transaction's resultant state, thus the complete block-transition mechanism, less PoW, the proof-of-work function is defined.
 
 ### 3.14. Mining Proof-of-Work
 
@@ -359,7 +363,7 @@ Ethash is the Proof-of-Work algorithm which was used to launch the Ethereum netw
 
 #### 3.14.2. Difficulty Mechanism
 
-This mechanism enforces a relative predictability in terms of the time-window between blocks; a smaller pe- riod between the last two blocks results in an increase in the difficulty level and thus additional computation re- quired, lengthening the next time-window. Conversely, if the time-window is too large, the difficulty is reduced, reducing the amount of time to the next block. The total_difficultya is the difficulty_state of the entire Ethereum blockchain. The block_difficulty, in contrast, is not a state of the blockchain, but is local– particular to each specific block. You reach the total difficulty by summing the individual difficulty of all previous blocks and then adding the difficulty of the present block.
+This mechanism enforces a relative predictability in terms of the time-window between blocks; a smaller pe- riod between the last two blocks results in an increase in the difficulty level and thus additional computation re- quired, lengthening the next time-window. Conversely, if the time-window is too large, the difficulty is reduced, reducing the amount of time to the next block. The total_difficultya is the difficulty_state of the entire Ethereum blockchain. The block_difficulty, in contrast, is not a state of the blockchain, but is local\UTF{2013} particular to each specific block. You reach the total difficulty by summing the individual difficulty of all previous blocks and then adding the difficulty of the present block.
 
 The **GHOST Protocol** provides an alternative solu- tion to double-spend attacks from the original solution in Satoshi Nakamoto's Bitcoin Whitepaper. Nakamoto solved the problem of double-spending by requiring the network to agree on a single block in order to function. For that reason, in the Bitcoin protocol, it's impossible to submit a "double-spend" block without having at least 50% of the network's mining power to force the longest chain. This is because the network automati- cally chooses the longest chain. So even if one wanted to submit two spend transactions in a row, the network simply picks whichever one comes first, ignoring the second because it no longer pertains to the longest chain (which now contains the first block that was sent) so the would-be hacker needs to submit a new block, as the first double block is no longer feasible.
 
