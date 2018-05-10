@@ -173,20 +173,19 @@ Over an account's execution, the total fee for memory- usage payable is proporti
 
 Implementations must be able to manage this even- tuality. Storage fees have a slightly nuanced behaviour to incentivize minimization of the use of storage (which corresponds directly to a larger state database on all nodes), the execution fee for an operation that clears an entry in the storage is not only waived, a qualified refund is given; in fact, this refund is effectively paid up-front since the initial usage of a storage location costs substantially more than normal usage.
 
-### 3.8. 実行
+### 3.8. Execution
 
-トランザクションの実行は、状態遷移関数stfを定義する。しかし、実行されるどんなトランザクションも初めに特定の検証に合格する必要がある。
+The execution of a transaction defines the state tran- sition function: stf. However, before any transaction can be executed it needs to go through the initial tests of intrinsic validity.
 
-#### 3..8.1. 特定の検証
+#### 3.8.1. Intrinsic Validity
 
-検証の合格条件(トランザクションが満たすべき条件)
+The criteria for intrinsic validity are as follows:
 
-- トランザクションは、RLPフォーマットに従っている。(RLPはrecursive length prefixの略)
-- トランザクションの署名が有効である。
-- トランザクションのnonceが有効である。送信者の現在のnonceと等しいかどうか検証する。
+- The transaction follows the rules for well-formed RLP (recursive length prefix.)
+- The signature on the transaction is valid.
+- The nonce on the transaction is valid, i.e. it is equivalent to the sender account's current nonce.
 - The gas_limit is greater than or equal to the intrinsic_gas used by the transaction.
-- トランザクションに事前に定められているGas量よりも、gas limitが大きく設定されている。
-- 送信者のアカウントの残高が、支払いの費用よりも上回っている。
+- The sender's account balance contains the cost required in up-front payment.
 
 #### 3.8.2. Transaction Receipt
 
