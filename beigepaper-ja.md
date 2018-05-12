@@ -4,17 +4,17 @@
 
 Ethereum のプロトコルは決定論的であるが、ふたつの基本的な機能を持つ実用的に無制限なステートマシンでもある。ひとつには、どこからでもアクセスできるシングルトンステートであり、もうひとつには、そのステートに変更を適用できる仮想マシンである。
 
-## 1. Imagining Bitcoin as a Computer
+## 1. コンピュータとしての Bitcoin を想像する
 
-Ethereum utilizes the distributed ledger model that originated with Bitcoin and repurposes it to model a virtual computer, giving machine level opcodes the same level of certainty as Bitcoin transactions. Just as sure as you can be certain that Bitcoin's ledger is accurate and that timestamps are correct through the Bitcoin consensus mechanism, just so sure is it that machine instructions initiated on Ethereum will execute.
+Ethereum は、Bitcoin に端を発する分散台帳モデルを仮想コンピュータを形成するために別の方法で活用し、マシンレベルの opcode に Bitcoin のトランザクションと同レベルの確実性を与える。Bitcoin の台帳が正確で、また Bitcoin のコンセンサス機構によってタイムスタンプも正しく記録されるのと同様に、Ethereum 上で開始された機械命令が実行されることも確実である。
 
-In other words, programs executed on the Ethereum Blockchain are basically unstoppable. This doesn't mean that Ethereum programs can't have bugs. This means that Ethereum programs can be trusted to execute without any interference from external non- network forces. This property arises from the inherent security of the blockchain which is built by, and main- tained upon, cryptographic proofs.
+言い換えれば、Ethereum の Blockchain 上で実行されるプログラムは基本的に止まらない。これは Ethereum のプログラムがバグを有しないことを意味するのではない。Ethereum のプログラムは外部の非ネットワーク的な力の影響を受けることなく実行されることが保証される、という意味だ。この特性は暗号法的証明の上に構築された Blockchain 固有のセキュリティによってもたらされる。
 
-### 1.1. Native Currency
+### 1.1. ネイティブ通貨
 
-Because Ethereum strives not primarily at the currency application, but at all applications, there is a fundamen- tal network cost unit used to mitigate the possibility of abusing the network with excessive computational expenditures. This is called gas, and is explained fully in §3. Gas is paid for exclusively in ether. The small- est unit of currency in Ethereum is the Wei, which is equal to Ξ10−18, where Ξ stands for 1 ether. All cur- rency transactions in Ethereum, at the machine level, are counted in Wei. There is also the Szabo, which is Ξ10−6, and the Finney, which is Ξ10−3.
+Ethereum は通貨アプリケーションを主とするのではなく、あらゆるアプリケーションで使用されるため、過剰な計算経費でネットワークを乱用する可能性を軽減するために用いる基本的なネットワークコスト単位がある。これは gas と呼ばれ、§3 で詳しく説明される。gas は ether でのみ支払われる。Ethereum で使われる通貨の最小単位は Wei であり、これは 1 ether の 10^-18 に等しい。Ethereum のすべての通貨トランザクションは、マシンレベルでは Wei で計上される。他には 10^-6 の Szabo や 10^-3 の Finney もある。
 
-The Ethereum network is subservient to others in terms of one thing only: ether, the native currency for Ethereum. Everything the system can do is bounded up in its ability to expend ether in exchange for gas, which buys a particular amount of system performance in some desired direction.
+Ethereum のネットワークは、Ethereum のネイティブ通貨である ether という一点でのみ、他に従属している。システムができるすべてのことは、gas と引き換えに ether を消費する能力に縛られている。gas を使って、特定の量の計算能力を購入することができる。
 
 ## 2. Memory and Storage
 
