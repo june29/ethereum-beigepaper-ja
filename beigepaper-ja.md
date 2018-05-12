@@ -177,14 +177,13 @@ Implementations must be able to manage this even- tuality. Storage fees have a s
 
 トランザクションの実行は、状態遷移関数stfを定義する。しかし、実行されるどんなトランザクションも初めに特定の検証に合格する必要がある。
 
-#### 3..8.1. 特定の検証
+#### 3.8.1. 特定の検証
 
 検証の合格条件(トランザクションが満たすべき条件)
 
 - トランザクションは、RLPフォーマットに従っている。(RLPはrecursive length prefixの略)
 - トランザクションの署名が有効である。
 - トランザクションのnonceが有効である。送信者の現在のnonceと等しいかどうか検証する。
-- The gas_limit is greater than or equal to the intrinsic_gas used by the transaction.
 - トランザクションに事前に定められているGas量よりも、gas limitが大きく設定されている。
 - 送信者のアカウントの残高が、支払いの費用よりも上回っている。
 
