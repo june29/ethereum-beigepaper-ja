@@ -173,35 +173,39 @@ Over an account's execution, the total fee for memory- usage payable is proporti
 
 Implementations must be able to manage this even- tuality. Storage fees have a slightly nuanced behaviour to incentivize minimization of the use of storage (which corresponds directly to a larger state database on all nodes), the execution fee for an operation that clears an entry in the storage is not only waived, a qualified refund is given; in fact, this refund is effectively paid up-front since the initial usage of a storage location costs substantially more than normal usage.
 
-### 3.8. Execution
+### 3.8. 実行
 
-The execution of a transaction defines the state tran- sition function: stf. However, before any transaction can be executed it needs to go through the initial tests of intrinsic validity.
+トランザクションの実行は、状態遷移関数stfを定義する。しかし、実行されるどんなトランザクションも初めに内部検証に合格する必要がある。
 
-#### 3.8.1. Intrinsic Validity
+#### 3.8.1. 内部検証
 
-The criteria for intrinsic validity are as follows:
+検証の合格条件(トランザクションが満たすべき条件)
 
-- The transaction follows the rules for well-formed RLP (recursive length prefix.)
-- The signature on the transaction is valid.
-- The nonce on the transaction is valid, i.e. it is equivalent to the sender account's current nonce.
-- The gas_limit is greater than or equal to the intrinsic_gas used by the transaction.
-- The sender's account balance contains the cost required in up-front payment.
+- トランザクションは、RLPフォーマットに従っている。(RLPはrecursive length prefixの略)
+- トランザクションの署名が有効である。
+- トランザクションのnonceが有効である。送信者の現在のnonceと等しいかどうか検証する。
+- トランザクションに事前に定められているGas量よりも、gas limitが大きく設定されている。
+- 送信者のアカウントの残高が、支払いの費用よりも上回っている。
 
-#### 3.8.2. Transaction Receipt
+#### 3.8.2. トランザクションレシート
 
-While the amount of gas used in the execution and the accrued log items belonging to the transaction are stored, information concering the result of a transac- tion's execution is stored in the transaction receipt tx_receipt. The set of log events which are created through the execution of the transaction, logs_set in addition to the bloom filter which contains the ac- tual information from those log events logs_bloom are located in the transaction receipt. In addition, the post-transaction state post_transaction(state) and the amount of gas used in the block containing the transaction receipt post(gas_used) are stored in the transaction receipt. As a result, the transaction receipt is a record of any given execution.
+Ethereumでは、トランザクションの実行に使用されたガスの量と未処理のログ項目がたくわえられながら、トランザクションの実行結果に関する情報はトランザクションの領収書に当たる tx_receipt に保存されます。 
+logs_bloomと呼ばれる実際のlogからの情報を含むブルームフィルタに加えて、トランザクションの実行によって作成された一連のログイベントlogs_setは、トランザクションレシートに格納されます。
+ さらに、取引後の状態post_transaction、およびトランザクションレシートを含むブロックで使用されるガスの総量（gas_used）がトランザクションレシートに格納されます。 そのため、トランザクションレシートは任意の実行のレコードになります。
 
-A valid transaction execution begins with a perma- nent change to the state: the nonce of the sender ac- count is increased by one and the balance is decreased by the collateral_gas which is the amount of gas a transaction is required to pay prior to its execution. The original transactor will differ from the sender if the message call or contract creation comes from a contract account executing code.
+有効なトランザクションは、常にアカウントの状態を更新するところから始められる。具体的には、送信者アカウントのnonceを1増加させ、トランザクションを実行するために前もって支払われるべきGasの量であるintrinsic gasの分だけアカウントの残高が減ります。 メッセージコールまたはコントラクトクリエーションがコントラクトアカウントの実行コードから生じる場合、元の取引者はそのトランザクションの送り手とは異なることがあります。
 
-After a transaction is executed, there comes a provi- sional state, which is a pre-final state. Gas used for the execution of individual EVM opcodes prior to their potential addition to the world_state creates:
+トランザクションが実行された後、暫定状態(provisional state)になります。これは最終の一つ手前の状態です。
+world_stateの潜在的な変更に先立って、個々のEVMのオペコードの実行に使用されるガスは、次を作成します。
 
 - provisional state
-- intrinsic gas, and an associated substate
-- The accounts tagged for self-destruction following the transaction's completion. self_destruct(accounts)
-- The logs_series, which creates checkpoints in EVM code execution for frontend applications to explore, and is made up of thelogs_set and logs_bloom from the tx_receipt.
-- The refund balance.
+- intrinsic gas(内部で消費するgas)
+- 補助状態(substate)
+- トランザクションの完了後に自己破棄のタグが付けられたアカウント。 self_destruct（accounts）
+- logs_series(フロントエンドアプリケーションが検出できるようにEVMコード実行中にチェックポイントの役割をします。tx_receiptのlogs_setとlogs_bloomから作られる。)
+- refund balance(取引終了後にアカウントに戻される金額)
 
-Code execution always depletes gas. If gas runs out, an out-of-gas error is signaled (oog) and the resulting state defines itself as an empty set; it has no effect on the world state. This describes the transactional nature of Ethereum. In order to affect the world state, a transaction must go through completely or not at all.
+コード実行は常にガスを枯渇させます。 ガスがなくなると、ガスアウトのエラーが通知され（oog）、結果の状態は空のsetとして定義されます。 それはWorld Stateに影響を与えません。 これはEthereumのトランザクショナル性質を表しています。 World Stateに影響を与えるためには、取引は完全に完了するか、まったく完了する必要があります。
 
 #### 3.8.3. Code Deposit
 
