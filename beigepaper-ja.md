@@ -201,7 +201,7 @@ world_stateの潜在的な変更に先立って、個々のEVMのオペコード
 - provisional state
 - intrinsic gas(内部で消費するgas)
 - 補助状態(substate)
-- self_destruct（accounts）(トランザクションの完了後に自己破棄のタグが付けられたアカウント。) 
+- self_destruct（accounts）(トランザクションの完了後に自己破棄のタグが付けられたアカウント。)
 - logs_series(フロントエンドアプリケーションが検出できるようにEVMコード実行中にチェックポイントの役割をします。tx_receiptのlogs_setとlogs_bloomから作られる。)
 - refund balance(取引終了後にアカウントに戻される金額)
 
